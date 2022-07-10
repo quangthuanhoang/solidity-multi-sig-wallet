@@ -87,7 +87,7 @@ return toke;
 }
 
 function getToken(uint ind) public view returns (address addressToken, string memory name, string memory symbol, uint value) {
-address memory x = Token(token[ind]).addr();
+address x = Token(token[ind]).addr();
 addressToken = address(token[ind]);
 name = Token(token[ind]).name();
 symbol = Token(token[ind]).symbol();
@@ -183,7 +183,7 @@ function getOwners() public view returns (address[] memory) {
 return owners;
 }
 
-function getToken() public view returns (Token[] memory) {
+function getTokens() public view returns (Token[] memory) {
 return token;
 }
 
