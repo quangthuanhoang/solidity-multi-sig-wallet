@@ -58,11 +58,11 @@ contract Token is ERC20Token, Owned {
 
     mapping(address => uint) balances;
 
-    constructor (string memory name, string memory symbol) {
+    constructor (string memory name, string memory symbol, uint value) {
         _symbol = symbol;
         _name = name;
         _decimal = 0;
-        _totalSupply = 100;
+        _totalSupply = value;
         _minter = msg.sender;
 
         balances[_minter] = _totalSupply;

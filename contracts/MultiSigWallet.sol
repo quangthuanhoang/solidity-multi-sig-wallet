@@ -79,8 +79,8 @@ function addNumConfirmationsRequired(uint _num) public onlyOwner {
 numConfirmationsRequired = _num;
 }
 
-function addToken(string memory name, string memory symbol) public returns (Token) {
-Token toke = new Token(name, symbol);
+function createToken(string memory name, string memory symbol, uint value) public returns (Token) {
+Token toke = new Token(name, symbol,value);
 token1.push(toke);
 return toke;
 }
