@@ -18,7 +18,7 @@ address[] public owners;
 mapping(address => bool) public isOwner;
 uint public numConfirmationsRequired;
 
-Token[] public token1;
+Token[] public token;
 
 struct Transaction {
 address to;
@@ -82,15 +82,15 @@ function addNumConfirmationsRequired(uint _num) public onlyOwner {
 
 function createToken(string memory name, string memory symbol, uint value) public returns (Token) {
 Token toke = new Token(name, symbol,value);
-token1.push(toke);
+token.push(toke);
 return toke;
 }
 
-function getBal(uint ind) public view returns (address x, string memory y, string memory t, uint z) {
-x = Token(token1[ind]).addr();
-y = Token(token1[ind]).name();
-t = Token(token1[ind]).symbol();
-z = Token(token1[ind]).balanceOf(x);
+function getToken(uint ind) public view returns (address addressToken, string memory name, string memory symbol, uint value) {
+addressToken = token1[ind];
+name = Token(token1[ind]).name();
+symbol = Token(token1[ind]).symbol();
+value = Token(token1[ind]).balanceOf(x);
 }
 
 receive() external payable {
@@ -175,7 +175,7 @@ emit RevokeConfirmation(msg.sender, _txIndex);
 }
 
 function getTokenCount() public view returns (uint){
-return token1.length;
+return token.length;
 }
 
 function getOwners() public view returns (address[] memory) {
@@ -183,7 +183,7 @@ return owners;
 }
 
 function getToken() public view returns (Token[] memory) {
-return token1;
+return token;
 }
 
 function getTransactionCount() public view returns (uint) {
