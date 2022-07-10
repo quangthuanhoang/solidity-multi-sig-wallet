@@ -68,11 +68,11 @@ require(!transactions[_txIndex].cancel, "tx already canceled");
 _;
 }
 
-function addOwner(address _owner) public onlyOwner {
-require(_owner != address(0), "aaaa");
-require(!isOwner[_owner], "already the owner");
-isOwner[_owner] = true;
-owners.push(_owner);
+function createOwner(address _owner) public onlyOwner {
+    require(_owner != address(0), "aaaa");
+    require(!isOwner[_owner], "already the owner");
+    isOwner[_owner] = true;
+    owners.push(_owner);
 }
 
 function addNumConfirmationsRequired(uint _num) public onlyOwner {
