@@ -87,10 +87,11 @@ return toke;
 }
 
 function getToken(uint ind) public view returns (address addressToken, string memory name, string memory symbol, uint value) {
-addressToken = token1[ind];
-name = Token(token1[ind]).name();
-symbol = Token(token1[ind]).symbol();
-value = Token(token1[ind]).balanceOf(x);
+address memory x = Token(token[ind]).addr();
+addressToken = address(token[ind]);
+name = Token(token[ind]).name();
+symbol = Token(token[ind]).symbol();
+value = Token(token[ind]).balanceOf(x);
 }
 
 receive() external payable {
