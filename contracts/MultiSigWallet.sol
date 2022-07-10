@@ -76,7 +76,8 @@ function createOwner(address _owner) public onlyOwner {
 }
 
 function addNumConfirmationsRequired(uint _num) public onlyOwner {
-numConfirmationsRequired = _num;
+    require(owners.length >= _num," < owners");
+    numConfirmationsRequired = _num;
 }
 
 function createToken(string memory name, string memory symbol, uint value) public returns (Token) {
